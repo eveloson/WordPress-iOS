@@ -173,7 +173,7 @@ class ThemeSelectionViewController: UIViewController, LoginWithLogoAndHelpViewCo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backButton = UIBarButtonItem()
-        backButton.title = "Back"
+        backButton.title = NSLocalizedString("Back", comment: "Back button title.")
         navigationItem.backBarButtonItem = backButton
     }
     
@@ -197,11 +197,13 @@ class ThemeSelectionViewController: UIViewController, LoginWithLogoAndHelpViewCo
 extension ThemeSelectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let theme = themeAtIndexPath(indexPath) else {
+        
+        // TODO: save selected Theme for site creation step.
+        guard let _ = themeAtIndexPath(indexPath) else {
             return
         }
 
-        performSegue(withIdentifier: "showSiteDetails", sender: theme)
+        performSegue(withIdentifier: "showSiteDetails", sender: nil)
     }
 
 }

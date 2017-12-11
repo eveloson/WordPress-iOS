@@ -20,7 +20,7 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        localizedText()
+        setLabelText()
         setupBackgroundTapGestureRecognizer()
     }
 
@@ -37,7 +37,7 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
         taglineField.textInsets.left = 20
     }
 
-    private func localizedText() {
+    private func setLabelText() {
         stepLabel.text = NSLocalizedString("STEP 3 OF 4", comment: "Step for view.")
         stepDescrLabel1.text = NSLocalizedString("Tell us more about the site you're creating.", comment: "Shown during the site details step of the site creation flow.")
         stepDescrLabel2.text = NSLocalizedString("What's the title and tagline?", comment: "Prompts the user for Site details information.")
@@ -98,8 +98,8 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
 
     private func showSiteTitleError() {
         let overlayView = WPWalkthroughOverlayView(frame: view.bounds)
-        overlayView.overlayTitle = NSLocalizedString("Error", comment: "Error title")
-        overlayView.overlayDescription = NSLocalizedString("Site Title must have a value.", comment: "Site Title error message.")
+        overlayView.overlayTitle = NSLocalizedString("Error", comment: "Title of Error alert.")
+        overlayView.overlayDescription = NSLocalizedString("Site Title must have a value.", comment: "Error shown when Site Title does not have a value.")
         overlayView.dismissCompletionBlock = { overlayView in
             overlayView?.dismiss()
         }
