@@ -39,8 +39,8 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
 
     private func localizedText() {
         stepLabel.text = NSLocalizedString("STEP 3 OF 4", comment: "Step for view.")
-        stepDescrLabel1.text = NSLocalizedString("Tell us more about the site you're creating.", comment: "Site details instruction.")
-        stepDescrLabel2.text = NSLocalizedString("What's the title and tagline?", comment: "Site details question.")
+        stepDescrLabel1.text = NSLocalizedString("Tell us more about the site you're creating.", comment: "Shown during the site details step of the site creation flow.")
+        stepDescrLabel2.text = NSLocalizedString("What's the title and tagline?", comment: "Prompts the user for Site details information.")
         siteTitleField.placeholder = NSLocalizedString("Add title", comment: "Site title placeholder.")
         taglineField.placeholder = NSLocalizedString("Optional tagline", comment: "Site tagline placeholder.")
         tagDescrLabel.text = NSLocalizedString("The tagline is a short line of text shown right below the title in most themes, and acts as site metadata on search engines.", comment: "Tagline description.")
@@ -50,8 +50,8 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
     // MARK: - TapGestureRecognizer
 
     private func setupBackgroundTapGestureRecognizer() {
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(SiteDetailsViewController.handleBackgroundTapGesture(_:)))
-        view.addGestureRecognizer(tgr)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SiteDetailsViewController.handleBackgroundTapGesture(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
 
     @objc private func handleBackgroundTapGesture(_ tgr: UITapGestureRecognizer) {
@@ -70,25 +70,15 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
         helpBadge.isHidden = (count == 0)
     }
 
-    // MARK: - Field Validation
-
-    fileprivate func validateForm() {
-    }
-
-    fileprivate func stringHasValue(_ textString: String?) -> Bool {
-
-        guard let textString = textString else {
-            return false
-        }
-
-        return textString.trim().count > 0
-    }
-
     // MARK: - Button Handling
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        validateForm()
+    }
+
+    private func validateForm() {
         if !stringHasValue(siteTitleField.text) {
-            showError()
+            showSiteTitleError()
         }
         else {
             let message = "Title: '\(siteTitleField.text!)'\nTagline: '\(taglineField.text ?? "")'\nThis is a work in progress. If you need to create a site, disable the siteCreation feature flag."
@@ -99,14 +89,14 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
             self.present(alertController, animated: true, completion: nil)
         }
     }
-
-    fileprivate func toggleNextButton(_ textField: UITextField) {
+    
+    private func toggleNextButton(_ textField: UITextField) {
         if textField == siteTitleField {
             nextButton.isEnabled = stringHasValue(textField.text)
         }
     }
 
-    private func showError() {
+    private func showSiteTitleError() {
         let overlayView = WPWalkthroughOverlayView(frame: view.bounds)
         overlayView.overlayTitle = NSLocalizedString("Error", comment: "Error title")
         overlayView.overlayDescription = NSLocalizedString("Site Title must have a value.", comment: "Site Title error message.")
@@ -116,6 +106,17 @@ class SiteDetailsViewController: UIViewController, LoginWithLogoAndHelpViewContr
         view.addSubview(overlayView)
     }
 
+    // MARK: - Helpers
+    
+    private func stringHasValue(_ textString: String?) -> Bool {
+        
+        guard let textString = textString else {
+            return false
+        }
+        
+        return textString.trim().count > 0
+    }
+    
     // MARK: - Misc
 
     override func didReceiveMemoryWarning() {
