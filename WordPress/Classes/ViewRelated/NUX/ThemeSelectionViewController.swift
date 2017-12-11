@@ -169,6 +169,14 @@ class ThemeSelectionViewController: UIViewController, LoginWithLogoAndHelpViewCo
         helpBadge.isHidden = (count == 0)
     }
 
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
+    }
+    
     // MARK: - Helpers
 
     private func themeAtIndexPath(_ indexPath: IndexPath) -> Theme? {
@@ -193,12 +201,7 @@ extension ThemeSelectionViewController: UICollectionViewDelegate {
             return
         }
 
-        let message = "'\(theme.name!)' selected.\nThis is a work in progress. If you need to create a site, disable the siteCreation feature flag."
-        let alertController = UIAlertController(title: nil,
-                                                message: message,
-                                                preferredStyle: .alert)
-        alertController.addDefaultActionWithTitle("OK")
-        self.present(alertController, animated: true, completion: nil)
+        performSegue(withIdentifier: "showSiteDetails", sender: theme)
     }
 
 }

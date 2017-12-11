@@ -479,6 +479,7 @@
 		985554311FBF78C9002D6D12 /* SiteTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985554301FBF78C9002D6D12 /* SiteTypeTableViewController.swift */; };
 		985554331FBF86F4002D6D12 /* SiteTypeTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985554321FBF86F4002D6D12 /* SiteTypeTableViewCells.swift */; };
 		985554351FBF88A3002D6D12 /* InstructionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 985554341FBF88A3002D6D12 /* InstructionTableViewCell.xib */; };
+		986F91A61FDF358A00BB64CB /* SiteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986F91A51FDF358A00BB64CB /* SiteDetailsViewController.swift */; };
 		98B4A6561FCCCEEE0085EA23 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4A6551FCCCEEE0085EA23 /* ThemeSelectionViewController.swift */; };
 		98ED49921FBFA5C200DF9180 /* SiteTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98ED49911FBFA5C200DF9180 /* SiteTypeTableViewCell.xib */; };
 		A01C542E0E24E88400D411F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01C542D0E24E88400D411F2 /* SystemConfiguration.framework */; };
@@ -1776,6 +1777,7 @@
 		985554301FBF78C9002D6D12 /* SiteTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTypeTableViewController.swift; sourceTree = "<group>"; };
 		985554321FBF86F4002D6D12 /* SiteTypeTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTypeTableViewCells.swift; sourceTree = "<group>"; };
 		985554341FBF88A3002D6D12 /* InstructionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionTableViewCell.xib; sourceTree = "<group>"; };
+		986F91A51FDF358A00BB64CB /* SiteDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDetailsViewController.swift; sourceTree = "<group>"; };
 		98B4A6551FCCCEEE0085EA23 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		98ED49911FBFA5C200DF9180 /* SiteTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiteTypeTableViewCell.xib; sourceTree = "<group>"; };
 		99D675225C3282AC88B89F04 /* Pods-WordPressTodayWidget.release-internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressTodayWidget.release-internal.xcconfig"; path = "../Pods/Target Support Files/Pods-WordPressTodayWidget/Pods-WordPressTodayWidget.release-internal.xcconfig"; sourceTree = "<group>"; };
@@ -3913,6 +3915,7 @@
 			isa = PBXGroup;
 			children = (
 				982BED991FBCF976000B848E /* SiteCreationNavigationController.swift */,
+				986F91A51FDF358A00BB64CB /* SiteDetailsViewController.swift */,
 				985554301FBF78C9002D6D12 /* SiteTypeTableViewController.swift */,
 				98B4A6551FCCCEEE0085EA23 /* ThemeSelectionViewController.swift */,
 			);
@@ -6662,6 +6665,7 @@
 				E142007A1C117A3B00B3B115 /* ManagedAccountSettings+CoreDataProperties.swift in Sources */,
 				B535209D1AF7EB9F00B33BA8 /* PushAuthenticationService.swift in Sources */,
 				B57273611B66CCEF000D1C4F /* AlertView.swift in Sources */,
+				986F91A61FDF358A00BB64CB /* SiteDetailsViewController.swift in Sources */,
 				3101866B1A373B01008F7DF6 /* WPTabBarController.m in Sources */,
 				85E105861731A597001071A3 /* WPWalkthroughOverlayView.m in Sources */,
 				85B125461B0294F6008A3D95 /* UIAlertControllerProxy.m in Sources */,
